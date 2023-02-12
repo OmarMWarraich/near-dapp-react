@@ -35,3 +35,14 @@ export async function connectToContract() {
         )
         console.log(window.contract)
 }
+
+export function login() {
+    window.walletConnection.requestSignIn(
+        nearEnvironment.contractName
+    )
+}
+
+export function logout() {
+    window.walletConnection.signOut();
+    window.location.reload();
+}

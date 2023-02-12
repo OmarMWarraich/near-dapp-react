@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { login, logout } from './utils/near';
 
-function App() {
+const App = () => {
+
+  const nearAccount = window.walletConnection.account();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <h1>
+        Near React Dapp
+      </h1>
+
+    {nearAccount.accountId ? (
+      <div>
+        <h2>Account ID: {nearAccount.accountId}</h2>
+        <button onClick={logout}>Logout</button>
+      </div>
+    ) : (
+      <button onClick={login}>Login</button>
+    )}
+
     </div>
-  );
+
+  )
 }
 
-export default App;
+export default App
+
