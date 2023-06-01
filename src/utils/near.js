@@ -23,7 +23,7 @@ export async function connectToContract() {
         
         console.log(window.walletConnection);
 
-        window.accoutId = window.walletConnection.getAccountId();
+        window.accountId = window.walletConnection.getAccountId();
 
         window.contract = new Contract(
             window.walletConnection.account(),
